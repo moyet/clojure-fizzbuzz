@@ -1,8 +1,7 @@
 (ns fizzbuzz.core)
 
-
 (defn fizzbuzz
-  "I don't do a whole lot."
+  "Returns Fizz Buzz FizzBuzz or x"
   [x]
   (let [a (atom "")]
     (when (= (mod x 3) 0)
@@ -18,7 +17,7 @@
     )
     )
 
-(defn main-funktion
+(defn main-function
   "Prints out fizzbuzz "
   [x]
   (let [rang (range 1 (inc x))]
@@ -26,3 +25,15 @@
     )
   )
 
+(defn looping-fizz [x]
+  "Looper over en liste og fizzbuzzer den"
+  (
+    let [lf (loop [i 100 j []]
+              (if (not (zero? i))
+                (recur (dec i)
+                       (conj j (fizzbuzz i))
+                       )
+                j))]
+    (reverse lf)
+    )
+  )
